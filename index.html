@@ -1,201 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>First HTML Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
-  <meta charset="UTF-8">
-  <meta name="per" content="Free Web tutorials">
-  <meta name="description" content="Personal websites">
-  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-  <meta name="author" content="Ka Wing Yan">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="styledposts.js"></script>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
   
-  <link rel="stylesheet" href="style.css">
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
   
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
 <body>
+
+<h2 style="text-align: center;">Modal Login Form</h2>
+
+<button onclick="document.getElementById('id01').style.display='block'">Verify check</button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="https://i.kym-cdn.com/entries/icons/original/000/000/878/who_pokemon.0.jpg" alt="who_pokemon" class="avatar">
+    </div>
+
     <div class="container">
-        <header class="header">
-        <h1>MY First HTML page</h1>  
-        <a id="home"></a>  
-        </header>
-        <ul>
-          <li><a class="active" href="#home">Home</a></li>
-          <li><a href="#Carrer">Carrer</a></li>
-          <li><a href="#About" >About</a></li>
-          <li><a href="#Contact">Contact</a></li>
-         
-          <li><a href="nativedialogs.html">part1 </a></li>
-          <li><a href="Custom Dialogs.html">part2 </a></li>
-          <li><a href="crud.html">part3 </a></li>
-          <li><a href="styledcrud.html">part4 </a></li>
-          <li><a href="tepo.html?#EditHistory">Local Note(part5)</a></li>
-        </ul>
-      </div>
-       <main>
-        <section class="myself">
-          <h5> I'm </h5>
-          <span class="blink">Terry Yan</span>
+      <b style="text-align: center;">Who's that pokemon!</b>
+      <input id="text" type="text" placeholder="Pokemon name" name="uname" required>
         
-      <br><br><br>
-      <p class="ex">Computer engineering student at UC San Diego</p>
-        
-      </section>
+      <button type="submit" onclick="checkInput">Submit!</button>
+    </div>
 
-      <section>
-        <header>
-          <h2 class="About">
-          Career
-          <a id="Carrer"></a>
-          </h2>
-        </header>
-       
-        <div class="info1">
-          <article class="test1">
-            <h3>Student Assistant in ELAC</h3>
-            <img src="picture/Carrer.jpg" alt="working employee" >
-
-            
-          </article>
-          <article>
-            <h2>Experience</h2>
-            <br>
-          <br>
-          <br>
-          <br>
-            <div> <p class="text">Good experience supporting multiple department and college staff and professor in different of office and administrative tasks. Excellent organizational skills and Working with different ethnicity; providing translation service with student that English not a native language. Relates well to students, faculty, staff and college members.
-          </p>
-          <article class="infoin">
-            <h2>Info</h2>
-          <ul class="ul1">
-            
-            <li class="li1">Tittle: Student Assistant</li>
-            <li class="li1">Department: Non-Credit Department</li>
-            <li class="li1">Date: 2020-2021</li>
-
-        </ul>
-      </article>
-        </div>
-          </article>
-          </div>
-          
-           
-      </section>
-        <section>
-          <header>
-            <a id="About"></a>
-            <h2 class="About">
-            About Me
-            
-            </h2>
-          </header>
-            <h3>Out of your comfort zone!</h3>
-            
-            <div class=" info">
-            <article class="infoin">
-              <h3>Cheung Sha Wan Catholic Secondary School</h3>
-              <img src="picture/cswcss1.jpg" alt="elac campus" >
-
-              <p>2011 - 2017</p>
-
-            </article>
-            <article class="infoin">
-              <h3>East Los Angeles College</h3>
-              <img src="picture/elac1.jpg" alt="elac campus">
-              <p>2018 - 2021</p>
-
-            </article>
-            <article class="infoin">
-              <h3>University of California, San Diegol</h3>
-              <img src="picture/ucsd1.jpg" alt="UCSD libary">
-              
-              <p>2021 - Present</p>
-            </article>
-            <br>
-            
-              
-            
-          
-            
-        </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" ;>Cancel</button>
+      <span class="psw"><b onmouseover="alert('pikachu')">Tips? </b></span>
       
-      
-        </section>
-        
-        <hr>
-        <header>
-          <h2 class="About">
-          Contact
-          <a id="Contact"></a>
-          </h2>
-        </header>
-        <section id="contact-main">
-          <div id="contact-link">
-              <header id="contact-welcome-message">
-                  <h2>&nbsp;</h2>
-                  
-                  <h2>&nbsp;</h2>
-              </header>
-  
-              <article id="social-media-container">
-                <h2> &nbsp;</h2>
-                  <a class="social-media-icon" href="https://twitter.com" title="tw">
-                      <img src="picture/tw.svg" alt="tw">
-                  </a>
-                  <a class="social-media-icon" href="https://www.facebook.com/profile.php?id=100001675569912" title="fb">
-                      <img src="picture/fb.svg" alt="fb">
-                  </a>
-                  <a class="social-media-icon" href="https://www.instagram.com/kawing.yan/" title="ig">
-                      <img src="picture/ig.svg" alt="ig">
-                  </a>
-                  <!-- Update this link later -->
-                  <a class="social-media-icon" href="https://www.linkedin.com/in/ka-wing-terry-yan-1a77171b9/" title="LinkedIn">
-                      <img src="picture/ld.svg" alt="LinkedIn">
-                  </a>
-              </article>
-          </div>
-  
-          <aside id="contact-form">
-              <form action="https://httpbin.org/get" method="get">
-                  <h3>Send me a message</h3>
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" autofocus="" required="">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" required="">
-                  <label for="subject">Subject</label>
-                  <input type="text" id="subject" name="subject" required="">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" rows="8" cols="50" placeholder="Type your thoughts here" required=""></textarea><br>
-                  <input type="submit" value="Submit" title="Send message">
-              </form>
-          </aside>
-      </section>
-       </main>
-    
-            
-         
-           
+    </div>
+  </form>
+</div>
 
-            
-          
-      
-      
-      
-      
-    
-      
-        
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+var input = document.getElementById('text');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+function checkInput() {
 
+if(text=='pikachu'){
+   window.location.href = "https://rainbow-granita-f814b8.netlify.app/";
+}else {
+    alert("Wrong input!");
+  }
+  }
+</script>
 
-
-      
-
-
-  <footer>
-    <p class="foot">Author: Ka Wing Yan
-      <br>
-      w2yan@ucsd.edu</p>
-  </footer>
-
-
+</body>
+</html>
