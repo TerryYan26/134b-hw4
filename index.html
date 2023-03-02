@@ -142,9 +142,9 @@ span.psw {
 
     <div class="container">
       <b style="text-align: center;">Who's that pokemon!</b>
-      <input id="text" type="text" placeholder="Pokemon name" name="uname" required>
-        
-      <button type="submit" onclick="checkInput">Submit!</button>
+      <input type="text" id="myInput2" placeholder="Pokemon name">
+
+      <button onclick="checkInput()">Submit!</button>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
@@ -154,11 +154,14 @@ span.psw {
     </div>
   </form>
 </div>
-
 <script>
+
+
+
+</script>
+ <script>
 // Get the modal
 var modal = document.getElementById('id01');
-var input = document.getElementById('text');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -166,14 +169,14 @@ window.onclick = function(event) {
     }
 }
 function checkInput() {
-
-if(text=='pikachu'){
-   window.location.href = "https://rainbow-granita-f814b8.netlify.app/index2";
-}else {
-    alert("Try again!");
-  }
-  }
-</script>
+var input = document.getElementById("myInput").value;
+if (input == "correct") {
+  window.location.href = "https://www.google.com";
+} else {
+  alert("Wrong input!");
+}
+}
+</script> 
 
 </body>
 </html>
