@@ -142,9 +142,9 @@ span.psw {
 
     <div class="container">
       <b style="text-align: center;">Who's that pokemon!</b>
-      <input type="text" id="myInput2" placeholder="Pokemon name">
+      <input type="text" id="myInput" placeholder="Pokemon name">
 
-      <button onclick="checkInput()">Submit!</button>
+      <button onclick="checkInput(event)">Submit!</button>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
@@ -168,14 +168,17 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-function checkInput() {
-var input = document.getElementById("myInput").value;
-if (input == "correct") {
-  window.location.href = "https://www.google.com";
-} else {
-  alert("Wrong input!");
+function checkInput(event) {
+  event.preventDefault();
+  var input = document.getElementById("myInput").value;
+  if (input === "pikachu") {
+    window.location.href = "https://rainbow-granita-f814b8.netlify.app/index2.html";
+  } else {
+    alert("Wrong input!");
+  }
 }
-}
+
+
 </script> 
 
 </body>
