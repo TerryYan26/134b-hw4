@@ -174,7 +174,9 @@ function checkInput(event) {
   if (input === "pikachu") {
     window.location.href = "https://rainbow-granita-f814b8.netlify.app/index2.html";
   } else {
-    alert("Wrong input!");
+    alert("Try Again!");
+    document.getElementById("myInput").value = ""; // Clear the input field
+
   }
 }
 
