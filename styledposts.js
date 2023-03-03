@@ -1,5 +1,5 @@
 // Retrieve items from local storage
-let items = JSON.parse(localStorage.getItem("todo-list")) || [];
+let items = JSON.parse(localStorage.getItem("posts")) || [];
 
 // Function to open the post dialog
 function openDialog() {
@@ -35,7 +35,7 @@ function addPost() {
   items.push(newPost);
 
   // Save the updated items array to local storage
-  localStorage.setItem("todo-list", JSON.stringify(items));
+  localStorage.setItem("posts", JSON.stringify(items));
 
   // Call the function to list all items
   listItems();
@@ -60,9 +60,12 @@ function editPost(index) {
 
   // Remove the old post from the items array
   items.splice(index, 1);
-
+  
+  if (document.querySelector("#add-post-btn").style.display === "none") {
+    return;
+  }
   // Save the updated items array to local storage
-  localStorage.setItem("todo-list", JSON.stringify(items));
+  localStorage.setItem("posts", JSON.stringify(items));
 
   // Call the function to list all items
   listItems();
@@ -73,30 +76,29 @@ function deleteItem(index) {
   items.splice(index, 1);
 
   // Save the updated items array to local storage
-  localStorage.setItem("todo-list", JSON.stringify(items));
+  localStorage.setItem("posts", JSON.stringify(items));
 
   // Call the function to list all items
   listItems();
 }
 
-// Function to mark a post as done or not done
-function markAsDone(index) {
-  items[index].done = !items[index].done;
 
-  // Save the updated items array to local storage
-  localStorage.setItem("todo-list", JSON.stringify(items));
-
-  // Call the function to list all items
-  listItems();
-}
 
 // Function that generates a list of items and populates the HTML
 function listItems() {
     items.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
       });
-  let list = "";
+      let list = "";
 
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector("#list-items").innerHTML = list;
+      });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    listItems();
+  });
+  
   // Loop through all items in the items array
   for (let i = 0; i < items.length; i++) {
     // Create a list item with the post's title, date, summary, and edit/delete labels
@@ -109,12 +111,15 @@ function listItems() {
               </li>`;
               }
               
-              // Set the list items HTML
+              document.addEventListener("DOMContentLoaded", function() {
+                listItems();
+              });
               document.querySelector("#list-items").innerHTML = list;
-              }
+            }
               
               // Function to run when the page loads
               (function() {
+                items = JSON.parse(localStorage.getItem("posts")) || [];
               // Call the function to list all items
               listItems();
               })();
